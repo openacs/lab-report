@@ -12,7 +12,14 @@
     <ul class="report">
       <li>
         <span class="label">@report.name@</span>
-        <if @author_p@><span class="options"><a class="button" href="@report.view_url@">#lab-report.view#</a></span></if>
+        <if @author_p@>
+          <if @report.report_created_p@>
+          <span class="options"><a class="button" href="@report.view_url@">#lab-report.view#</a></span>
+          </if>
+          <else>
+          <span class="options"><a class="button" href="@report.new_url@">#lab-report.new#</a></span>
+	  </else>
+        </if>
         <div class="spacer"></div>
       </li>
     </ul>

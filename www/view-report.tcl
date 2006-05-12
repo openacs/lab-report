@@ -5,6 +5,7 @@ ad_page_contract {
     @creation-date 2006-05-10
     @cvs-id $Id$
 } {
+    report_id
     lab_id
     template_id
 }
@@ -27,9 +28,16 @@ db_1row template_details {}
 set template_desc [template::util::richtext::get_property \
 		       html_value $template_desc]
 
-db_multirow sections select_sections {}
+db_multirow -extend {section_url} sections select_sections {} {
+    set section_url [export_vars -url \
+			 -base view-section {report_id lab_id template_id section_id}]
+    set content [template::util::richtext::get_property html_value $content]
+}
 
-set title "$template_name [_ lab-report.for] $lab_name"
-set context [list $title]
+set lab_url [export_vars -url -base view-lab {lab_id}]
+set overview_url [export_vars -url -base view-report { lab_id template_id }]]
+
+set title "$template_name"
+set context [list [list $lab_url $lab_name] $title]
 
 ad_return_template

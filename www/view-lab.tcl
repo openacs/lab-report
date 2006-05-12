@@ -20,11 +20,18 @@ set author_id [lab_report::get_author_id -package_id $package_id]
 
 db_1row lab_details {}
 
-db_multirow -extend {view_url} report select_reports {} {
-    set view_url [export_vars -url -base view-report {lab_id template_id}]
+db_multirow -extend {view_url new_url report_created_p} report select_reports {} {
+    set view_url [export_vars -url -base view-report \
+		      {lab_id template_id report_id}]
+    set new_url [export_vars -url -base new-report {lab_id template_id}]
+
+    set report_created_p 1
+    if {$report_id == ""} {
+	set report_created_p 0
+    }
 }
 
-set title "[_ lab-report.lab_reports_for] $lab_name"
+set title "$lab_name"
 set context [list $title]
 
 ad_return_template

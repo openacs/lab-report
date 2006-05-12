@@ -235,6 +235,10 @@ div#report-container table tr td.content ul li.content {
 	border: 1px solid #000;
 }
 
+div#report-container table tr td.content ul li.content a.edit {
+	float: right;
+}
+
 div#report-container h3 {
 	color: #686868;
 }

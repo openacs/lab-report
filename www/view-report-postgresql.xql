@@ -24,10 +24,12 @@
 
    <fullquery name="select_sections">
      <querytext>
-       SELECT section_id, name AS section_name, description AS section_desc
-       FROM lrc_section
-       WHERE template_id = :template_id
-       ORDER BY section_id
+       SELECT s.section_id, s.name AS section_name, 
+           s.description AS section_desc, c.content
+       FROM lrc_section s LEFT OUTER JOIN lr_section_content c
+           ON (s.section_id = c.section_id)
+       WHERE s.template_id = :template_id
+       ORDER BY s.section_id
      </querytext>
    </fullquery>
 
