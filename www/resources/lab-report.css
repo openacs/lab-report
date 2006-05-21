@@ -243,3 +243,53 @@ div#report-container table tr td.content ul li.content a.edit {
 div#report-container h3 {
 	color: #686868;
 }
+
+
+/* Resources container */
+ul#resources-list {
+	width: 158px;
+	list-style-type: none;
+	border: 1px solid #808080;
+	font-style: verdana,helvetica,arial,sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 3em 0 0 0;
+	padding: 0px;
+	background: #F0F0F0;
+}
+
+ul#resources-list li {
+	border-top: 1px solid #808080;
+}
+
+ul#resources-list li.header {
+	margin: 0.5em;
+	font-size: 12px;
+	text-align: center;
+	border: none;
+}
+
+ul#resources-list li a {
+	display: block;
+	width: 122px;
+	padding: 4px 8px 4px 8px;
+	border: 0px;
+	border-left: 20px solid #686868;
+	background: #F0F0F0;
+	text-decoration: none;
+	text-align: right;
+}
+
+ul#resources-list li a:link {
+	color: #666677;
+}
+
+ul#resources-list li a:visited {
+	color: #666677;
+}
+
+ul#resources-list li a:hover {
+	border-color: #ff9000;
+	color: #000;
+	background: #CCCCCC;
+}

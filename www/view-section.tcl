@@ -39,6 +39,8 @@ db_multirow -extend {section_url} navs select_navs {} {
 			      {section_id $nav_section_id}}]
 }
 
+db_multirow resources select_resources {}
+
 # Create some URLs
 set new_url [export_vars -url -base new-section {report_id lab_id section_id template_id}]
 set lab_url [export_vars -url -base view-lab {lab_id}]

@@ -26,6 +26,16 @@
 	    </multiple>
           </ul>
         </div>
+        <if @resources:rowcount@ gt 0>
+	<div id="resources-container">
+	  <ul id="resources-list">
+	    <li class="header">#lab-report.resources#</li>
+	    <multiple name="resources">
+            <li><a href="@resources.resource_url@" target="_blank">@resources.resource_name;noquote@</a></li>
+            </multiple>
+	  </ul>
+ 	</div>
+        </if>
       </td>
       <td class="content">
 	<ul>

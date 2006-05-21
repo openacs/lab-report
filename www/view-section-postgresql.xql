@@ -30,6 +30,14 @@
      </querytext>
    </fullquery>
 
+   <fullquery name="select_resources">
+     <querytext>
+       SELECT name AS resource_name, url AS resource_url
+       FROM lrc_resource
+       WHERE section_id = :section_id
+     </querytext>
+   </fullquery>
+
    <fullquery name="select_navs">
      <querytext>
        SELECT section_id AS nav_section_id, name AS nav_section_name
