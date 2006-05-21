@@ -33,7 +33,7 @@
           <h3>#lab-report.description#</h3> @section_desc;noquote@
           </li>
           <li class="content">
-          <h3>@section_name@</h2>
+          <h3>@section_name@</h3>
 
           <if @author_p@>
             <if @content_created_p@>
