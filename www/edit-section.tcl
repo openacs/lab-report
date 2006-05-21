@@ -61,6 +61,7 @@ ad_form -name section -cancel_url $return_url -form {
     }
 } -select_query {
     SELECT content FROM lr_section_content WHERE content_id = :content_id
+    AND package_id = :package_id
 } -edit_data {
     set modifying_user [ad_conn user_id]
     set modifying_ip [ad_conn peeraddr]

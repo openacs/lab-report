@@ -45,6 +45,7 @@
        FROM lr_section_content
        WHERE report_id = :report_id
        AND section_id = :section_id
+       AND package_id = :package_id
      </querytext>
    </fullquery>
 
@@ -53,6 +54,7 @@
        SELECT content_id, content from lr_section_content
        WHERE report_id = :report_id
        AND section_id = :section_id
+       AND package_id = :package_id
      </querytext>
    </fullquery>
 

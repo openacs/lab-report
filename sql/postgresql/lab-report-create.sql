@@ -105,6 +105,10 @@ create table lr_section_content (
 				constraint lr_section_content_section_id_fk
 				references lrc_section (section_id)
 				on delete cascade,
+	package_id		integer
+				constraint lr_section_content_package_id_fk
+				references apm_packages (package_id)
+				on delete cascade,
 	content			text
 );
 
@@ -213,11 +217,13 @@ begin
        		content_id,
 		report_id,
 		section_id,
+		package_id,
 	        content
     	) VALUES (
        		v_content_id,
 		p_report_id,
 		p_section_id,
+		p_package_id,
 	        p_content
     	);
 

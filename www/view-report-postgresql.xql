@@ -27,7 +27,7 @@
        SELECT s.section_id, s.name AS section_name, 
            s.description AS section_desc, c.content
        FROM lrc_section s LEFT OUTER JOIN lr_section_content c
-           ON (s.section_id = c.section_id)
+           ON (s.section_id = c.section_id AND c.package_id = :package_id)
        WHERE s.template_id = :template_id
        ORDER BY s.section_id
      </querytext>

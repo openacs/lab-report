@@ -27,7 +27,7 @@
           </li>
           <li class="content">
 	  <multiple name="sections">
-          <h3>@sections.section_name@</h2>
+          <h3>@sections.section_name@</h3>
           @sections.content;noquote@
           </multiple>
           </li>

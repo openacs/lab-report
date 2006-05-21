@@ -214,7 +214,7 @@ div#report-container table tr td.content {
 	padding: 0;
 	width: 100%;
 	vertical-align: top;
-	line-height: 150%;
+	line-height: 130%;
 }
 
 div#report-container table tr td.content ul {
@@ -222,6 +222,7 @@ div#report-container table tr td.content ul {
 	padding: 0;
 	list-style-type: none;
 	font-family: verdana, arial, sans-serif;
+	font-size: small;
 }
 
 div#report-container table tr td.content ul li.description {

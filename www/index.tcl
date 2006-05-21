@@ -37,6 +37,6 @@ set author_p [permission::permission_p -party_id $user_id \
 		  -privilege "lab_report_author"]
 
 set title [_ lab-report.labs]
-set context [list $title]
+set context ""
 
 ad_return_template

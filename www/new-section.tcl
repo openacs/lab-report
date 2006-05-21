@@ -27,6 +27,7 @@ if { ![db_0or1row section_content_exists {}] } {
     set content_id [package_instantiate_object \
 			-var_list [list [list report_id $report_id] \
 				       [list section_id $section_id] \
+				       [list package_id $package_id] \
 				       [list author_id $author_id]] \
 			lr_section_content]
 }
