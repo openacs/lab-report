@@ -5,6 +5,7 @@
 <property name="header_stuff">
 <link rel="stylesheet" type="text/css" href="/resources/lab-report/lab-report.css" media="all">
 </property>
+<property name="displayed_object_id">@report_id@</property>
 
 
 <div id="report-container">
@@ -30,6 +31,13 @@
           <h3>@sections.section_name@</h3>
           @sections.content;noquote@
           </multiple>
+          </li>
+          <li class="comments">
+            <h3>#lab-report.comments#</h3>
+            <ul>
+            @gc_comments;noquote@
+            </ul>
+            <div class="add-comment">@gc_link;noquote@</div>
           </li>
         </ul>
       </td>

@@ -25,6 +25,19 @@ if { ![db_0or1row report_exists {}] } {
 				      [list template_id $template_id] \
 				      [list author_id $author_id]] \
 		       lr_report]
+
+    # Get instructor group ID.
+    set instructor_group_id [lab_report_central::instructor_group_id]
+
+    # Grant instructors commenting privileges on report.
+    lab_report::grant_gc_create \
+	-party_id $instructor_group_id \
+	-object_id $report_id
+
+    # Grant author commenting privileges on report.
+    lab_report::grant_gc_create \
+	-party_id $author_id \
+	-object_id $report_id
 }
 
 # Redirect to view-report page.

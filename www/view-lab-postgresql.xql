@@ -19,7 +19,8 @@
        SELECT r.report_id, t.template_id, t.name,
            t.description AS template_desc
        FROM lrc_template t
-           LEFT OUTER JOIN lr_report r ON (r.template_id = t.template_id),
+           LEFT OUTER JOIN lr_report r ON (r.template_id = t.template_id
+               AND r.author_id = :author_id),
            lrc_lab_template_map m
        WHERE m.lab_id = :lab_id
        AND m.template_id = t.template_id

@@ -5,6 +5,8 @@
 @header_stuff;noquote@
 <link rel="stylesheet" type="text/css" href="@css@" media="all"/>
 </property>
+<property name="displayed_object_id">@displayed_object_id@</property>
+
 
 <P>
 <div class="visualClear"></div>

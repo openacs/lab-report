@@ -55,6 +55,15 @@
             </else>
           </if>
           </li>
+          <if @content_created_p@>
+          <li class="comments">
+            <h3>#lab-report.comments#</h3>
+            <ul>
+            @gc_comments;noquote@
+            </ul>
+            <div class="add-comment">@gc_link;noquote@</div>
+          </li>
+          </if>
         </ul>
       </td>
     </tr>

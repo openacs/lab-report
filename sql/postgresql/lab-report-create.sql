@@ -148,7 +148,9 @@ begin
         	p_creation_date,
         	p_creation_user,
         	p_creation_ip,
-        	p_context_id
+        	p_context_id,
+		''#lab-report.lab_report#'',
+		p_package_id
     	);
 
     	INSERT INTO lr_report (
@@ -237,3 +239,7 @@ begin
     	return v_content_id;
 
 end;' language 'plpgsql';
+
+
+-- Register service contract implementations.
+\i lab-report-sc-create.sql

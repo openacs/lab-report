@@ -68,3 +68,19 @@ ad_proc -public lab_report::get_users_options {} {
     
     return $users_list
 }
+
+
+ad_proc -public lab_report::grant_gc_create {
+    -party_id
+    -object_id
+} {
+    Grants general_comments_create privileges to the party on the
+    specified object_id.
+
+    @param object_id The ID of an object to grant commenting privileges
+    to a party.
+} {
+    permission::grant -party_id $party_id \
+	-object_id $object_id \
+	-privilege "general_comments_create"
+}

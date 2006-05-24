@@ -30,6 +30,19 @@ if { ![db_0or1row section_content_exists {}] } {
 				       [list package_id $package_id] \
 				       [list author_id $author_id]] \
 			lr_section_content]
+
+    # Get instructor group ID.
+    set instructor_group_id [lab_report_central::instructor_group_id]
+
+    # Grant instructors commenting privileges on report.
+    lab_report::grant_gc_create \
+	-party_id $instructor_group_id \
+	-object_id $content_id
+
+    # Grant author commenting privileges on report.
+    lab_report::grant_gc_create \
+	-party_id $author_id \
+	-object_id $content_id
 }
 
 # Redirect to edit-section page.

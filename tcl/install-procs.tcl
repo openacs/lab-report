@@ -19,6 +19,8 @@ ad_proc -private lab_report::install::package_instantiate {
 } {
     db_transaction {
 	lab_report::install::create_author_group -package_id $package_id
+
+	lab_report::install::grant_gc_create -package_id $package_id
     }
 }
 

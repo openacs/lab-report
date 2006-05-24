@@ -5,18 +5,23 @@
   <msg key="author">Author</msg>
   <msg key="author_already_exists">Author already exists.  You cannot add another author.</msg>
   <msg key="author_group">Author Group</msg>
+  <msg key="comments">Comments</msg>
   <msg key="content">Content</msg>
   <msg key="description">Description</msg>
   <msg key="edit">Edit</msg>
   <msg key="for">for</msg>
   <msg key="help_enter_section_content">Enter content for this section of your lab report.</msg>
   <msg key="help_select_author">Select an author from the list.</msg>
+  <msg key="lab_report">Lab Report</msg>
   <msg key="lab_reports_for">Lab reports for</msg>
   <msg key="labs">Labs</msg>
   <msg key="new">New</msg>
   <msg key="overview">Overview</msg>
   <msg key="please_inform_administrator_need_author">This application requires an author to be set in order to write lab reports.  Please inform your site administrator that an author needs to be set for this application.</msg>
+  <msg key="report">Report</msg>
   <msg key="reports_for">Reports for</msg>
+  <msg key="resources">Resources</msg>
   <msg key="search">Search</msg>
+  <msg key="section_content">Section Content</msg>
   <msg key="view">View</msg>
 </message_catalog>

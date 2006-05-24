@@ -55,8 +55,21 @@ if { [db_0or1row section_content_exists {}] } {
     set edit_url [export_vars -url -base edit-section {report_id lab_id section_id template_id content_id}]
 
     set content [template::util::richtext::get_property html_value $content]
+
+    # General comments
+    set return_url [export_vars -url \
+			-base "[ad_conn package_url]view-section" \
+			{ report_id lab_id template_id section_id }]
+    
+    set gc_link [general_comments_create_link \
+		     -object_name "$section_name" \
+		     -link_attributes {class="button"} \
+		     $content_id $return_url]
+    set gc_comments [general_comments_get_comments \
+			 $content_id $return_url]
 }
 
+# Title and context
 set title "$section_name"
 set context [list [list $lab_url $lab_name] \
 		 [list $overview_url $template_name] $title]

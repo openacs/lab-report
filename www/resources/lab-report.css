@@ -14,6 +14,12 @@
 	font-size: 12px;
 }
 
+.add-comment {
+	margin: 0px auto;
+	text-align: center;
+	margin-top: 1em;
+}
+
 
 /* Report Lab Container */
 #lr-lab-list-container {
@@ -234,10 +240,21 @@ div#report-container table tr td.content ul li.description {
 div#report-container table tr td.content ul li.content {
 	padding: 5px;
 	border: 1px solid #000;
+	margin-bottom: 1em;
 }
 
 div#report-container table tr td.content ul li.content a.edit {
 	float: right;
+}
+
+div#report-container table tr td.content ul li.comments {
+	padding: 5px;
+	border: 1px solid #000;
+}
+
+div#report-container table tr td.content ul li.comments ul {
+	margin-left: 2em;
+	margin-right: 2em;
 }
 
 div#report-container h3 {
