@@ -257,6 +257,10 @@ div#report-container table tr td.content ul li.comments ul {
 	margin-right: 2em;
 }
 
+div#report-container table tr td.content ul li.comments a.edit {
+	float: right;
+}
+
 div#report-container h3 {
 	color: #686868;
 }
@@ -309,4 +313,31 @@ ul#resources-list li a:hover {
 	border-color: #ff9000;
 	color: #000;
 	background: #CCCCCC;
+}
+
+
+/* Feedback container */
+#lr-feedback-container {
+	margin-left: 0.5em;
+}
+
+#lr-feedback-container ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-family: verdana, arial, sans-serif;
+	font-size: small;
+}
+
+#lr-feedback-container ul li.title {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-weight: bold;
+	color: #686868;
+}
+
+#lr-feedback-container ul li.edit {
+	padding-top: 2em;
+	padding-right: 0.5em;
+	float: right;
 }

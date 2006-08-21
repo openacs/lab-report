@@ -11,6 +11,8 @@ ad_page_contract {
     section_id
 }
 
+auth::require_login
+
 set package_id [ad_conn package_id]
 set user_id [ad_conn user_id]
 
@@ -52,21 +54,13 @@ if { [db_0or1row section_content_exists {}] } {
     set content_created_p 1
 
     db_1row select_content {}
-    set edit_url [export_vars -url -base edit-section {report_id lab_id section_id template_id content_id}]
+    set edit_content_url [export_vars -url -base edit-section {report_id lab_id section_id template_id content_id}]
 
     set content [template::util::richtext::get_property html_value $content]
 
-    # General comments
-    set return_url [export_vars -url \
-			-base "[ad_conn package_url]view-section" \
-			{ report_id lab_id template_id section_id }]
-    
-    set gc_link [general_comments_create_link \
-		     -object_name "$section_name" \
-		     -link_attributes {class="button"} \
-		     $content_id $return_url]
-    set gc_comments [general_comments_get_comments \
-			 $content_id $return_url]
+    db_multirow -extend {iframe_url} feedback select_feedback {} {
+	set iframe_url [export_vars -url -base "iframe/feedback-view" {report_id lab_id template_id section_id feedback_criteria_id}]
+    }
 }
 
 # Title and context

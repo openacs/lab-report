@@ -48,7 +48,7 @@
           <if @author_p@>
             <if @content_created_p@>
 	    @content;noquote@
-            <a class="edit button" href="@edit_url@">#lab-report.edit#</a><div class="spacer"></div>
+            <a class="edit button" href="@edit_content_url@">#lab-report.edit#</a><div class="spacer"></div>
             </if>
 	    <else>
             <a class="edit button" href="@new_url@">#lab-report.new#</a><div class="spacer"></div>
@@ -56,13 +56,19 @@
           </if>
           </li>
           <if @content_created_p@>
-          <li class="comments">
-            <h3>#lab-report.comments#</h3>
-            <ul>
-            @gc_comments;noquote@
-            </ul>
-            <div class="add-comment">@gc_link;noquote@</div>
-          </li>
+            <if @feedback:rowcount@ gt 0>
+            <li class="comments">
+              <h3>#lab-report.feedback#</h3>
+              <hr />
+              <multiple name="feedback">
+              <iframe src="@feedback.iframe_url@" width="600px" height="110px" marginwidth="0" marginheight="0" frameborder="0">
+              Your browser does not support IFRAMES,
+              please consider upgrading your browser.
+              </iframe>
+              <hr />
+              </multiple>
+            </li>
+            </if>
           </if>
         </ul>
       </td>

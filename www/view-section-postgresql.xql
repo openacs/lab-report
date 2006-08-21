@@ -38,6 +38,14 @@
      </querytext>
    </fullquery>
 
+   <fullquery name="select_feedback">
+     <querytext>
+       SELECT feedback_criteria_id, name AS feedback_criteria_name
+       FROM lrc_feedback_criteria
+       WHERE section_id = :section_id
+     </querytext>
+   </fullquery>
+
    <fullquery name="select_navs">
      <querytext>
        SELECT section_id AS nav_section_id, name AS nav_section_name

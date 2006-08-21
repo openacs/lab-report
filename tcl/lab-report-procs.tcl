@@ -84,3 +84,15 @@ ad_proc -public lab_report::grant_gc_create {
 	-object_id $object_id \
 	-privilege "general_comments_create"
 }
+
+
+ad_proc -public lab_report::instructor_p {
+    user_id
+} {
+    Checks if the given user_id is an instructor.
+
+    @param user_id A user_id to check against members of the instructor group.
+} {
+    return [group::member_p -user_id $user_id \
+		-group_id [lab_report_central::instructor_group_id]]
+}
