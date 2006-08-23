@@ -24,7 +24,7 @@ if { ![lab_report::instructor_p $user_id] } {
 
 set criteria_name [db_string select_criteria_name {} -default ""]
 
-ad_form -name feedback -cancel_url $return_url -form {
+ad_form -name feedback -form {
     {feedback_id:key(acs_object_id_seq)}
     {report_id:text(hidden) {value $report_id}}
     {lab_id:text(hidden) {value $lab_id}}
@@ -39,18 +39,10 @@ ad_form -name feedback -cancel_url $return_url -form {
     }
     {rating:text(select),optional
 	{label "[_ lab-report.rating]" }
-	{help_text "[_ lab-report.help_select_rating]"}
 	{options {{None none} {"Needs Work" needs_work} {Satisfactory satisfactory} {Complete complete}}}
     }
-    {comment:richtext(richtext),optional
-	{html {cols 50 rows 4}}
-	{htmlarea_p 0}
-	{nospell}
-	{label "[_ lab-report.comments]" }
-	{help_text "[_ lab-report.help_enter_comments]"}
-    }
 } -select_query {
-       SELECT rating, comment
+       SELECT rating
 	   FROM lr_section_feedback WHERE feedback_id = :feedback_id
 } -new_data {
 
@@ -64,8 +56,7 @@ ad_form -name feedback -cancel_url $return_url -form {
 			   [list report_id $report_id] \
 			   [list section_id $section_id] \
 			   [list instructor_id $instructor_id] \
-			   [list rating $rating] \
-			   [list comment $comment]] \
+			   [list rating $rating]] \
 	    -form_id feedback lr_section_feedback]
     }
 

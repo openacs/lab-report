@@ -49,7 +49,6 @@ drop function lr_section_feedback__new (
 	integer,
 	integer,
 	varchar,
-	text,
 	integer,
 	timestamptz,
 	integer,

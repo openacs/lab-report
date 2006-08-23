@@ -12,7 +12,6 @@
   <ul>
     <li class="title">@feedback_criteria_name@</li>
     <li><b>#lab-report.rating#:</b> @rating@</li>
-    <li><b>#lab-report.comments#:</b> @comment;noquote@</li>
     <if @instructor_p@><li class="edit"><a class="button" href="@edit_url@">#lab-report.edit#</a><div class="spacer"></div></li></if>
   </ul>
 </div>

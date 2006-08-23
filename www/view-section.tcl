@@ -63,6 +63,16 @@ if { [db_0or1row section_content_exists {}] } {
     }
 }
 
+# General comments
+set return_url [export_vars -url \
+		    -base "[ad_conn package_url]view-report" \
+		    { lab_id template_id report_id }]
+
+set gc_link [general_comments_create_link -link_attributes {class="button"} \
+		 $report_id $return_url]
+set gc_comments [general_comments_get_comments $report_id $return_url]
+
+
 # Title and context
 set title "$section_name"
 set context [list [list $lab_url $lab_name] \

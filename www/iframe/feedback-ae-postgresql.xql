@@ -13,8 +13,7 @@
    <fullquery name="feedback_update">
      <querytext>
        UPDATE lr_section_feedback
-           SET rating = :rating,
-	   comment = :comment
+           SET rating = :rating
 	   WHERE feedback_id = :feedback_id
      </querytext>
    </fullquery>

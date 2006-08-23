@@ -1,19 +1,18 @@
 <master src="resources/main-portal">
 <property name="title">@title;noquote@</property>
 <property name="context">@context;noquote@</property>
-<property name="admin_options">[<a href="admin/">#lab-report.admin#</a>]</property>
 <property name="header_stuff">
 <link rel="stylesheet" type="text/css" href="/resources/lab-report/lab-report.css" media="all">
 </property>
 
-
+<h1>@template_name@ - @title@</h1>
 <div id="report-container">
   <table>
     <tr>
       <td class="nav">
         <div id="nav-container">
           <ul id="navlist">
-            <li><a href="@overview_url@">#lab-report.overview#</a></li>
+            <li><a href="@overview_url@">#lab-report.report_view#</a></li>
 	    <multiple name="navs">
             <li>
               <if @section_id@ eq @navs.nav_section_id@>
@@ -40,7 +39,7 @@
       <td class="content">
 	<ul>
           <li class="description">
-          <h3>#lab-report.description#</h3> @section_desc;noquote@
+          <h3>#lab-report.instructions#</h3> @section_desc;noquote@
           </li>
           <li class="content">
           <h3>@section_name@</h3>
@@ -55,23 +54,34 @@
             </else>
           </if>
           </li>
-          <if @content_created_p@>
-            <if @feedback:rowcount@ gt 0>
-            <li class="comments">
+          <li class="comments">
+            <h3>#lab-report.comments#</h3>
+            <ul>
+            @gc_comments;noquote@
+            </ul>
+            <div class="add-comment">@gc_link;noquote@</div>
+          </li>
+        </ul>
+      </td>
+      <if @content_created_p@>
+      <if @feedback:rowcount@ gt 0>
+      <td class="feedback">
+        <ul>
+          <li>
               <h3>#lab-report.feedback#</h3>
               <hr />
               <multiple name="feedback">
-              <iframe src="@feedback.iframe_url@" width="600px" height="110px" marginwidth="0" marginheight="0" frameborder="0">
+              <iframe src="@feedback.iframe_url@" width="150px" height="100px" marginwidth="0" marginheight="0" frameborder="0">
               Your browser does not support IFRAMES,
               please consider upgrading your browser.
               </iframe>
               <hr />
               </multiple>
-            </li>
-            </if>
-          </if>
+          </li>
         </ul>
       </td>
+      </if>
+      </if>
     </tr>
   </table>
 </div>

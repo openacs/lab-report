@@ -14,11 +14,11 @@
         <maturity>0</maturity>
 
         <provides url="lab-report" version="0.1d"/>
-	<requires url="acs-translations" version="0.1d1"/>
-	<requires url="lab-report-central" version="0.1d"/>
+        <requires url="acs-translations" version="0.1d1"/>
+        <requires url="lab-report-central" version="0.1d"/>
 
         <callbacks>
-            <callback type="after-instantiate" proc="lab_report::install::package_instantiate"/>
+            <callback type="after-instantiate"  proc="lab_report::install::package_instantiate"/>
         </callbacks>
         <parameters>
             <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="LabReportCSS"  default="/resources/lab-report/main-portal.css" description="Specify the location of a CSS file to use for this application's colour scheme."/>

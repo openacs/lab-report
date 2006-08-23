@@ -146,7 +146,6 @@ create table lr_section_feedback (
 				constraint lrc_lab_instructor_id_fk
 				references users(user_id),
 	rating			varchar (5120),
-	comment			text,
 	package_id		integer
 				constraint lr_section_feedback_package_id_fk
 				references apm_packages (package_id)
@@ -282,7 +281,7 @@ begin
 end;' language 'plpgsql';
 
 
-select define_function_args('lr_section_feedback__new','feedback_id,feedback_criteria_id,report_id,section_id,instructor_id,rating,comment,package_id,creation_date;now,creation_user,creation_ip,context_id');
+select define_function_args('lr_section_feedback__new','feedback_id,feedback_criteria_id,report_id,section_id,instructor_id,rating,package_id,creation_date;now,creation_user,creation_ip,context_id');
 
 create function lr_section_feedback__new (
 	integer,
@@ -291,7 +290,6 @@ create function lr_section_feedback__new (
 	integer,
 	integer,
 	varchar,
-	text,
 	integer,
 	timestamptz,
 	integer,
@@ -305,12 +303,11 @@ declare
     	p_section_id	        alias for $4;
 	p_instructor_id		alias for $5;
 	p_rating		alias for $6;
-	p_comment		alias for $7;
-	p_package_id		alias for $8;
-    	p_creation_date         alias for $9;        	-- default now()
-    	p_creation_user         alias for $10;        	-- default null
-    	p_creation_ip           alias for $11;		-- default null
-    	p_context_id            alias for $12;		-- default null
+	p_package_id		alias for $7;
+    	p_creation_date         alias for $8;        	-- default now()
+    	p_creation_user         alias for $9;        	-- default null
+    	p_creation_ip           alias for $10;		-- default null
+    	p_context_id            alias for $11;		-- default null
 
     	v_feedback_id		lr_section_feedback.feedback_id%TYPE;
 	v_inst_group_id		integer;
@@ -332,7 +329,6 @@ begin
 		section_id,
 		instructor_id,
 		rating,
-		comment,
 		package_id
     	) VALUES (
        		v_feedback_id,
@@ -341,7 +337,6 @@ begin
 		p_section_id,
 		p_instructor_id,
 		p_rating,
-		p_comment,
 		p_package_id
     	);
 

@@ -76,6 +76,7 @@
 	margin-left: 3px;
 }
 
+
 #lr-lab-list-container ul ul.report li span.label {
 	margin-left: 3em;
 	float:left;
@@ -83,6 +84,7 @@
 
 #lr-lab-list-container ul ul.report li span.options {
 	float: right;
+        border: 1px solid #000;
 }
 
 #lr-lab-list-container ul ul li.notice {
@@ -144,6 +146,7 @@
 
 #lr-report-list-container ul.report li span.options {
 	float: right;
+        border: 1px solid #000;
 }
 
 
@@ -212,8 +215,8 @@ div#report-container table tr td.nav {
 	vertical-align: top;
 	margin: 0;
 	padding: 0;
-	padding-right: 1em;
-	padding-top: 1em;
+	padding-right: 0.5em;
+	padding-top: 0.5em;
 }
 
 div#report-container table tr td.content {
@@ -235,6 +238,7 @@ div#report-container table tr td.content ul li.description {
 	padding: 5px;
 	margin-bottom: 1em;
 	border: 1px solid #000;
+	background-color: #FFFFCC;
 }
 
 div#report-container table tr td.content ul li.content {
@@ -263,6 +267,23 @@ div#report-container table tr td.content ul li.comments a.edit {
 
 div#report-container h3 {
 	color: #686868;
+}
+
+div#report-container table tr td.feedback {
+	padding: 0;
+	width: 100%;
+	vertical-align: top;
+	line-height: 130%;
+}
+
+div#report-container table tr td.feedback ul {
+	margin: 0 0 0 0.5em;
+	padding: 0.5em;
+	list-style-type: none;
+	border: 1px solid #000;
+	font-family: verdana, arial, sans-serif;
+	font-size: small;
+        background-color: #CCFF99;
 }
 
 
@@ -326,7 +347,7 @@ ul#resources-list li a:hover {
 	padding: 0;
 	list-style-type: none;
 	font-family: verdana, arial, sans-serif;
-	font-size: small;
+	font-size: x-small;
 }
 
 #lr-feedback-container ul li.title {
@@ -334,10 +355,13 @@ ul#resources-list li a:hover {
 	padding-bottom: 0.5em;
 	font-weight: bold;
 	color: #686868;
+	font-size: x-small;
 }
 
 #lr-feedback-container ul li.edit {
-	padding-top: 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 	padding-right: 0.5em;
 	float: right;
+	font-size: small;
 }

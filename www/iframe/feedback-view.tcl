@@ -19,7 +19,6 @@ set user_id [ad_conn user_id]
 
 # set defaults
 set rating "none"
-set comment ""
 
 db_0or1row select_feedback {}
 
@@ -32,8 +31,6 @@ if { $rating eq "complete" } {
 } else {
     set rating "None"
 }
-
-set comment [template::util::richtext::get_property html_value $comment]
 
 if { [info exists feedback_id] && $feedback_id ne "" } {
     set edit_url [export_vars -url -base feedback-ae {report_id lab_id template_id section_id feedback_criteria_id feedback_id}]

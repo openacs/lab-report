@@ -5,8 +5,7 @@
 
    <fullquery name="select_feedback">
      <querytext>
-       SELECT c.name AS feedback_criteria_name, sf.feedback_id,
-           sf.rating, sf.comment
+       SELECT c.name AS feedback_criteria_name, sf.feedback_id, sf.rating
        FROM lrc_feedback_criteria c LEFT OUTER JOIN lr_section_feedback sf
            ON (c.feedback_criteria_id = sf.feedback_criteria_id
                AND sf.report_id = :report_id)
