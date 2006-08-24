@@ -39,7 +39,7 @@ ad_form -name feedback -form {
     }
     {rating:text(select),optional
 	{label "[_ lab-report.rating]" }
-	{options {{None none} {"Needs Work" needs_work} {Satisfactory satisfactory} {Complete complete}}}
+	{options {{"" none} {"Needs Work" needs_work} {Satisfactory satisfactory} {Complete complete}}}
     }
 } -select_query {
        SELECT rating

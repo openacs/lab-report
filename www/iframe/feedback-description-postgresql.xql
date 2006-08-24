@@ -3,7 +3,7 @@
 <queryset>
    <rdbms><type>postgresql</type><version>7.4</version></rdbms>
 
-   <fullquery name="select_feedback">
+   <fullquery name="select_description">
      <querytext>
        SELECT c.name AS feedback_criteria_name, sf.feedback_id,
            sf.rating, c.url, c.description
