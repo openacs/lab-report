@@ -127,7 +127,7 @@
 	border-left: 1em solid #686868;
 	border-bottom: 1px solid #686868;
 	padding: 4px 8px;
-	width: 50em;
+	width: 60em;
 	margin-bottom: 5px;
 }
 
@@ -140,7 +140,14 @@
 }
 
 #lr-report-list-container ul.report li span.label {
-	margin-left: 3em;
+	margin-left: 2em;
+	font-weight: bold;
+	float:left;
+}
+
+#lr-report-list-container ul.report li span.dates {
+	margin-left: 1em;
+	font-size: x-small;
 	float:left;
 }
 
@@ -364,4 +371,10 @@ ul#resources-list li a:hover {
 	padding-right: 0.5em;
 	float: right;
 	font-size: small;
+}
+
+div#close {
+	margin-top: 3em;
+  	width: 100%;
+  	text-align: center;
 }

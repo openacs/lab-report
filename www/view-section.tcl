@@ -23,6 +23,9 @@ set author_p [permission::permission_p -party_id $user_id \
 # Otherwise retrieve list of lab reports for the designated author.
 set author_id [lab_report::get_author_id -package_id $package_id]
 
+# Is the user an instructor?
+set instructor_p [lab_report::instructor_p $user_id]
+
 # Retrieve lab details.
 db_1row lab_details {}
 
@@ -63,14 +66,20 @@ if { [db_0or1row section_content_exists {}] } {
     }
 }
 
-# General comments
-set return_url [export_vars -url \
-		    -base "[ad_conn package_url]view-report" \
-		    { lab_id template_id report_id }]
+set editable_p 0
+if { [db_0or1row select_report_dates {}] } {
+    if { [lab_report::within_date_bounds_p -now_date $now -start_date $start_date -end_date $end_date] } {
+	set editable_p 1
+    }
+}
 
-set gc_link [general_comments_create_link -link_attributes {class="button"} \
-		 $report_id $return_url]
-set gc_comments [general_comments_get_comments $report_id $return_url]
+# General comments
+set comment ""
+if { [db_0or1row select_comments {}] } {
+    set comment [template::util::richtext::get_property html_value $comment]
+}
+
+set comments_link [export_vars -url -base section-comment-ae {report_id lab_id template_id section_id comment_id}]
 
 
 # Title and context

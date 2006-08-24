@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <message_catalog package_key="lab-report" package_version="0.1d" locale="en_US" charset="ISO-8859-1">
 
+  <msg key="add_comment">Add Comment</msg>
   <msg key="admin">Admin</msg>
   <msg key="author">Author</msg>
   <msg key="author_already_exists">Author already exists.  You cannot add another author.</msg>
   <msg key="author_group">Author Group</msg>
+  <msg key="available_for_editing_from">Available for editing from</msg>
+  <msg key="closed">Closed</msg>
+  <msg key="comment">Comment</msg>
   <msg key="comments">Comments</msg>
   <msg key="content">Content</msg>
   <msg key="criteria">Criteria</msg>
   <msg key="description">Description</msg>
   <msg key="edit">Edit</msg>
+  <msg key="edit_comment">Edit Comment</msg>
   <msg key="edit_feedback">Edit Feedback</msg>
+  <msg key="enter_section_comment">Enter any comments for the section of the report.</msg>
   <msg key="feedback">Feedback</msg>
   <msg key="for">for</msg>
-  <msg key="help_enter_comments">Enter any comments.</msg>
+  <msg key="help">Help</msg>
+  <msg key="help_enter_section_comment">Enter any comments for this section.</msg>
   <msg key="help_enter_section_content">Enter content for this section of your lab report.</msg>
   <msg key="help_select_author">Select an author from the list.</msg>
   <msg key="help_select_rating">Select a rating for this criteria.</msg>
+  <msg key="info">Info</msg>
   <msg key="instructions">Instructions</msg>
   <msg key="lab_report">Lab Report</msg>
   <msg key="lab_reports_for">Lab reports for</msg>
   <msg key="labs">Labs</msg>
+  <msg key="need_help">Need Help</msg>
   <msg key="new">New</msg>
   <msg key="overview">Overview</msg>
   <msg key="please_inform_administrator_need_author">This application requires an author to be set in order to write lab reports.  Please inform your site administrator that an author needs to be set for this application.</msg>
   <msg key="rating">Rating</msg>
+  <msg key="release">Release</msg>
   <msg key="report">Report</msg>
   <msg key="report_view">Report View</msg>
   <msg key="reports_for">Reports for</msg>
@@ -32,6 +42,9 @@
   <msg key="search">Search</msg>
   <msg key="section_content">Section Content</msg>
   <msg key="section_feedback">Section Feedback</msg>
+  <msg key="submission">Submission</msg>
+  <msg key="submission_due_date">Submission due date</msg>
+  <msg key="to">to</msg>
   <msg key="view">View</msg>
   <msg key="you_do_not_have_permission_to_provide_feedback">You do not have permission to provide feedback.</msg>
 </message_catalog>

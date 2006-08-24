@@ -31,13 +31,6 @@
           @sections.content;noquote@
           </multiple>
           </li>
-          <li class="comments">
-            <h3>#lab-report.comments#</h3>
-            <ul>
-            @gc_comments;noquote@
-            </ul>
-            <div class="add-comment">@gc_link;noquote@</div>
-          </li>
         </ul>
       </td>
     </tr>

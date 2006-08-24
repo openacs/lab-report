@@ -46,6 +46,16 @@
      </querytext>
    </fullquery>
 
+   <fullquery name="select_comments">
+     <querytext>
+       SELECT comment_id, comment
+       FROM lr_section_comment
+       WHERE section_id = :section_id
+       AND report_id = :report_id
+       AND package_id = :package_id
+     </querytext>
+   </fullquery>
+
    <fullquery name="select_navs">
      <querytext>
        SELECT section_id AS nav_section_id, name AS nav_section_name
@@ -71,6 +81,15 @@
        WHERE report_id = :report_id
        AND section_id = :section_id
        AND package_id = :package_id
+     </querytext>
+   </fullquery>
+
+   <fullquery name="select_report_dates">
+     <querytext>
+	SELECT current_timestamp AS now, m.start_date, m.end_date
+	FROM lrc_lab_template_map m
+	WHERE m.lab_id = :lab_id
+	AND m.template_id = :template_id
      </querytext>
    </fullquery>
 

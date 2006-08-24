@@ -96,3 +96,25 @@ ad_proc -public lab_report::instructor_p {
     return [group::member_p -user_id $user_id \
 		-group_id [lab_report_central::instructor_group_id]]
 }
+
+ad_proc -private lab_report::within_date_bounds_p {
+    -now_date:required
+    -start_date:required
+    -end_date:required
+} {
+    Checks if now_date is between start_date and end_date inclusive.
+
+    @param now_date The current date.
+    @param start_date Lower bound.
+    @param end_date Upper bound.
+
+    @return Returns 1 if now_date is between date bounds, otherwise 0 is
+    returned.
+} {
+    set within_date_bounds_p 0
+    if { $now_date >= $start_date && $now_date <= $end_date } {
+	set within_date_bounds_p 1
+    }
+
+    return $within_date_bounds_p
+}

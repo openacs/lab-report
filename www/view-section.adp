@@ -44,6 +44,7 @@
           <li class="content">
           <h3>@section_name@</h3>
 
+          <if @editable_p@>
           <if @author_p@>
             <if @content_created_p@>
 	    @content;noquote@
@@ -53,14 +54,23 @@
             <a class="edit button" href="@new_url@">#lab-report.new#</a><div class="spacer"></div>
             </else>
           </if>
+          </if>
           </li>
+          <if @instructor_p@>
           <li class="comments">
             <h3>#lab-report.comments#</h3>
-            <ul>
-            @gc_comments;noquote@
-            </ul>
-            <div class="add-comment">@gc_link;noquote@</div>
+            @comment;noquote@
+            <div class="add-comment"><a class="edit button" href="@comments_link@">#lab-report.edit#</a><div class="spacer"></div></div>
           </li>
+          </if>
+          <elseif @author_p@>
+            <if @comment@ ne "">
+            <li class="comments">
+            <h3>#lab-report.comments#</h3>
+            @comment;noquote@
+            </if>
+          </li>
+          </elseif>
         </ul>
       </td>
       <if @content_created_p@>

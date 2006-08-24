@@ -1,5 +1,5 @@
 ad_page_contract {
-    Displays the contents for a specific lab report section.
+    Add/Edit the comment for a specific lab report section.
 
     @author Nick Carroll (nick.c@rroll.net)
     @creation-date 2006-05-10
@@ -9,7 +9,7 @@ ad_page_contract {
     lab_id:integer
     template_id:integer
     section_id:integer
-    content_id:integer,optional
+    comment_id:integer,optional
 }
 
 set package_id [ad_conn package_id]
@@ -35,7 +35,6 @@ set section_desc [template::util::richtext::get_property \
 
 
 # Create some URLs
-set edit_url [export_vars -url -base edit-section {lab_id section_id}]
 set lab_url [export_vars -url -base view-lab {lab_id}]
 set overview_url [export_vars -url \
 		      -base view-report { report_id lab_id template_id }]
@@ -46,22 +45,35 @@ set context [list [list $lab_url $lab_name] \
 
 set return_url [export_vars -url -base view-section {report_id lab_id template_id section_id}]
 
-ad_form -name section -cancel_url $return_url -form {
-    {content_id:key(acs_object_id_seq)}
+ad_form -name comment -cancel_url $return_url -form {
+    {comment_id:key(acs_object_id_seq)}
     {report_id:integer(hidden) {value $report_id}}
     {lab_id:integer(hidden) {value $lab_id}}
     {template_id:integer(hidden) {value $template_id}}
     {section_id:integer(hidden) {value $section_id}}
     {author_id:integer(hidden) {value $author_id}}
-    {content:richtext(richtext),optional
-	{label "[_ lab-report.content]"}
-	{help_text "[_ lab-report.help_enter_section_content]"}
+    {comment:richtext(richtext),optional
+	{label "[_ lab-report.comment]"}
+	{help_text "[_ lab-report.help_enter_section_comment]"}
 	{html {cols 80 rows 20}}
         {nospell}
     }
 } -select_query {
-    SELECT content FROM lr_section_content WHERE content_id = :content_id
+    SELECT comment FROM lr_section_comment WHERE comment_id = :comment_id
     AND package_id = :package_id
+} -new_data {
+
+    db_transaction {
+	set comment_id [package_instantiate_object \
+	    -var_list [list [list package_id $package_id] \
+			   [list object_type lr_section_comment] \
+			   [list report_id $report_id] \
+			   [list section_id $section_id] \
+			   [list instructor_id $user_id] \
+			   [list comment $comment]] \
+	    -form_id comment lr_section_comment]
+    }
+
 } -edit_data {
     set modifying_user [ad_conn user_id]
     set modifying_ip [ad_conn peeraddr]

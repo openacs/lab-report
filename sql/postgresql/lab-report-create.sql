@@ -63,6 +63,21 @@ select  acs_object_type__create_type (
     null
 );
 
+
+select  acs_object_type__create_type (
+    'lr_section_comment',
+    '#lab-report.section_comment#',
+    '#lab-report.section_comments#',
+    'acs_object',
+    'lr_section_comment',
+    'comment_id',
+    null,
+    'f',
+    null,
+    null
+);
+
+
 --
 -- Create tables
 --
@@ -148,6 +163,29 @@ create table lr_section_feedback (
 	rating			varchar (5120),
 	package_id		integer
 				constraint lr_section_feedback_package_id_fk
+				references apm_packages (package_id)
+				on delete cascade
+);
+
+
+create table lr_section_comment (
+	comment_id		integer
+				constraint lr_section_comment_pk
+				primary key,
+	report_id		integer
+				constraint lr_section_comment_report_id_fk
+				references lr_report (report_id)
+				on delete cascade,
+	section_id		integer
+				constraint lr_section_comment_section_id_fk
+				references lrc_section (section_id)
+				on delete cascade,
+	instructor_id		integer
+				constraint lr_section_comment_instructor_id_fk
+				references users(user_id),
+	comment			text,
+	package_id		integer
+				constraint lr_section_comment_package_id_fk
 				references apm_packages (package_id)
 				on delete cascade
 );
@@ -365,6 +403,90 @@ begin
     	);
 
     	return v_feedback_id;
+
+end;' language 'plpgsql';
+
+
+select define_function_args('lr_section_comment__new','comment_id,report_id,section_id,instructor_id,comment,package_id,creation_date;now,creation_user,creation_ip,context_id');
+
+create function lr_section_comment__new (
+	integer,
+	integer,
+	integer,
+	integer,
+	text,
+	integer,
+	timestamptz,
+	integer,
+	varchar,
+	integer
+) returns integer as '
+declare
+	p_comment_id		alias for $1;        	-- default null
+    	p_report_id		alias for $2;
+    	p_section_id	        alias for $3;
+	p_instructor_id		alias for $4;
+	p_comment		alias for $5;
+	p_package_id		alias for $6;
+    	p_creation_date         alias for $7;        	-- default now()
+    	p_creation_user         alias for $8;        	-- default null
+    	p_creation_ip           alias for $9;		-- default null
+    	p_context_id            alias for $10;		-- default null
+
+    	v_comment_id		lr_section_comment.comment_id%TYPE;
+	v_inst_group_id		integer;
+begin
+
+    	v_comment_id := acs_object__new (
+        	p_comment_id,
+        	''lr_section_comment'',
+        	p_creation_date,
+        	p_creation_user,
+        	p_creation_ip,
+        	p_context_id
+    	);
+
+    	INSERT INTO lr_section_comment (
+       		comment_id,
+		report_id,
+		section_id,
+		instructor_id,
+		comment,
+		package_id
+    	) VALUES (
+       		v_comment_id,
+		p_report_id,
+		p_section_id,
+		p_instructor_id,
+		p_comment,
+		p_package_id
+    	);
+
+
+    	SELECT group_id into v_inst_group_id
+      	FROM lrc_groups
+        WHERE magic_name = ''instructors'';
+
+	-- Grant permission to lab instructors on this object.
+    	PERFORM acs_permission__grant_permission(
+          	v_comment_id,
+          	v_inst_group_id,
+	        ''lab_report_central_read''
+    	);
+
+    	PERFORM acs_permission__grant_permission(
+          	v_comment_id,
+          	v_inst_group_id,
+	        ''lab_report_central_write''
+    	);
+
+    	PERFORM acs_permission__grant_permission(
+          	v_comment_id,
+          	v_inst_group_id,
+	        ''lab_report_central_admin''
+    	);
+
+    	return v_comment_id;
 
 end;' language 'plpgsql';
 

@@ -17,7 +17,10 @@
    <fullquery name="select_reports">
      <querytext>
        SELECT r.report_id, t.template_id, t.name,
-           t.description AS template_desc
+           t.description AS template_desc,
+           to_char(m.start_date, 'DD Month, YYYY') AS pretty_start_date,
+           to_char(m.end_date, 'DD Month, YYYY') AS pretty_end_date,
+	   current_timestamp AS now, m.start_date, m.end_date
        FROM lrc_template t
            LEFT OUTER JOIN lr_report r ON (r.template_id = t.template_id
                AND r.author_id = :author_id),

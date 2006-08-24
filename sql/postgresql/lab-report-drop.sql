@@ -56,6 +56,19 @@ drop function lr_section_feedback__new (
 	integer
 );
 
+drop function lr_section_comment__new (
+	integer,
+	integer,
+	integer,
+	integer,
+	text,
+	integer,
+	timestamptz,
+	integer,
+	varchar,
+	integer
+);
+
 
 --
 -- Drop tables
@@ -65,10 +78,12 @@ drop table lr_author_group;
 drop table lr_report;
 drop table lr_section_content;
 drop table lr_section_feedback;
+drop table lr_section_comment;
 
 delete from acs_objects where object_type='lr_report';
 delete from acs_objects where object_type='lr_section_content';
 delete from acs_objects where object_type='lr_section_feedback';
+delete from acs_objects where object_type='lr_section_comment';
 
 --
 -- Drop object types.
@@ -76,6 +91,7 @@ delete from acs_objects where object_type='lr_section_feedback';
 select acs_object_type__drop_type ('lr_report', 'f');
 select acs_object_type__drop_type ('lr_section_content', 'f');
 select acs_object_type__drop_type ('lr_section_feedback', 'f');
+select acs_object_type__drop_type ('lr_section_comment', 'f');
 
 
 -- Drop service contract implementations.
