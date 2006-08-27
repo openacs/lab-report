@@ -81,12 +81,15 @@
               <h3>#lab-report.feedback#</h3>
               <hr />
               <multiple name="feedback">
-              <iframe src="@feedback.iframe_url@" width="150px" height="100px" marginwidth="0" marginheight="0" frameborder="0">
+              <iframe src="@feedback.iframe_url@" width="150px" height="<if @instructor_p@>100px</if><else>70px</else>" marginwidth="0" marginheight="0" frameborder="0">
               Your browser does not support IFRAMES,
               please consider upgrading your browser.
               </iframe>
               <hr />
               </multiple>
+          </li>
+          <li>
+            <if @instructor_p@><a href="@lab_return_url@" class="button">#lab-report.return_to_lab#</a></if>
           </li>
         </ul>
       </td>
