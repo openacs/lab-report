@@ -27,6 +27,7 @@
            lrc_lab_template_map m
        WHERE m.lab_id = :lab_id
        AND m.template_id = t.template_id
+       ORDER BY m.end_date ASC
      </querytext>
    </fullquery>
 
