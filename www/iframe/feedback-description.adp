@@ -8,7 +8,7 @@
 </property>
 
 
-<div id="lr-feedback-container">
+<div id="lr-feedback-description-container">
   <ul>
     <li class="title"><h1>@feedback_criteria_name@</h1></li>
     <li><h2>#lab-report.description#</h2> @description;noquote@</li>

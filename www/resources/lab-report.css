@@ -346,20 +346,13 @@ ul#resources-list li a:hover {
 
 
 /* Feedback container */
-#lr-feedback-container {
-
-}
-
 #lr-feedback-container ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	font-family: verdana, arial, sans-serif;
 	font-size: x-small;
-}
-
-#lr-feedback-container ul li {
-
+        background-color: #CCFF99;
 }
 
 #lr-feedback-container ul li.title {
@@ -386,4 +379,33 @@ div#close {
 	margin-top: 3em;
   	width: 100%;
   	text-align: center;
+	padding: 1px;
+}
+
+/* Feedback description container*/
+#lr-feedback-description-container ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-family: verdana, arial, sans-serif;
+	font-size: small;
+}
+
+#lr-feedback-description-container ul li.title {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-weight: bold;
+	color: #686868;
+	font-size: x-small;
+}
+
+#lr-feedback-description-container ul li.edit {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-right: 0.5em;
+	font-size: small;
+}
+
+#lr-feedback-description-container ul li.edit a {
+	margin-right: 0.5em;
 }
