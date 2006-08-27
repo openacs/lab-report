@@ -19,7 +19,7 @@
     <if @user_is_author_p@>
     <if @needs_help_p@><if @url@ ne ""><a href="@url@" class="button" target="_blank">#lab-report.help#</a></if></if>
     </if>
-    <if @description@ ne ""><a class="button" onclick="popup('@description_url@', '@feedback_criteria_name@');return false;" href="@description_url@" target="_blank">#lab-report.info#</a></if>
+    <if @description@ ne ""><a class="button" href="javascript:popup('@description_url;noquote@', 'Info');">#lab-report.info#</a></if>
     </li>
   </ul>
 </div>
