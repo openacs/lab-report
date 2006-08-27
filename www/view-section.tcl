@@ -87,4 +87,6 @@ set title "$section_name"
 set context [list [list $lab_url $lab_name] \
 		 [list $overview_url $template_name] $title]
 
+set lab_return_url [export_vars -url -base "/lrc/lab" {lab_id}]
+
 ad_return_template

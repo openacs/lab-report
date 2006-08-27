@@ -281,6 +281,7 @@ div#report-container table tr td.feedback {
 	width: 100%;
 	vertical-align: top;
 	line-height: 130%;
+
 }
 
 div#report-container table tr td.feedback ul {
@@ -346,7 +347,7 @@ ul#resources-list li a:hover {
 
 /* Feedback container */
 #lr-feedback-container {
-	margin-left: 0.5em;
+        background-color: #CCFF99;
 }
 
 #lr-feedback-container ul {
@@ -355,6 +356,11 @@ ul#resources-list li a:hover {
 	list-style-type: none;
 	font-family: verdana, arial, sans-serif;
 	font-size: x-small;
+        background-color: #CCFF99;
+}
+
+#lr-feedback-container ul li {
+        background-color: #CCFF99;
 }
 
 #lr-feedback-container ul li.title {
@@ -363,15 +369,21 @@ ul#resources-list li a:hover {
 	font-weight: bold;
 	color: #686868;
 	font-size: x-small;
+        background-color: #CCFF99;
 }
 
 #lr-feedback-container ul li.edit {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	padding-right: 0.5em;
-	float: right;
 	font-size: small;
+        background-color: #CCFF99;
 }
+
+#lr-feedback-container ul li.edit a {
+	margin-right: 0.5em;
+}
+
 
 div#close {
 	margin-top: 3em;
