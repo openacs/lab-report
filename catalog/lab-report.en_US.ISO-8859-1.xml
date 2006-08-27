@@ -31,6 +31,7 @@
   <msg key="labs">Labs</msg>
   <msg key="need_help">Need Help</msg>
   <msg key="new">New</msg>
+  <msg key="new_report">New Report</msg>
   <msg key="overview">Overview</msg>
   <msg key="please_inform_administrator_need_author">This application requires an author to be set in order to write lab reports.  Please inform your site administrator that an author needs to be set for this application.</msg>
   <msg key="rating">Rating</msg>
@@ -39,6 +40,7 @@
   <msg key="report_view">Report View</msg>
   <msg key="reports_for">Reports for</msg>
   <msg key="resources">Resources</msg>
+  <msg key="return_to_lab">Return to Lab</msg>
   <msg key="search">Search</msg>
   <msg key="section_content">Section Content</msg>
   <msg key="section_feedback">Section Feedback</msg>
