@@ -14,10 +14,12 @@
   <ul>
     <li class="title">@feedback_criteria_name@</li>
     <li><b>#lab-report.rating#:</b> @rating@</li>
-    <if @instructor_p@><li class="edit"><a class="button" href="@edit_url@">#lab-report.edit#</a><div class="spacer"></div></li></if>
+    <li class="edit">
+    <if @instructor_p@><a class="button" href="@edit_url@">#lab-report.edit#</a></if>
     <if @user_is_author_p@>
-    <if @needs_help_p@><if @url@ ne ""><li class="edit"><a href="@url@" class="button" target="_blank">#lab-report.help#</a><div class="spacer"></div></li></if></if>
+    <if @needs_help_p@><if @url@ ne ""><a href="@url@" class="button" target="_blank">#lab-report.help#</a></if></if>
     </if>
-    <if @description@ ne ""><li class="edit"><a class="button" onclick="popup('@description_url@', '@feedback_criteria_name@');return false;" href="@description_url@" target="_blank">#lab-report.info#</a><div class="spacer"></div></li></if>
+    <if @description@ ne ""><a class="button" onclick="popup('@description_url@', '@feedback_criteria_name@');return false;" href="@description_url@" target="_blank">#lab-report.info#</a></if>
+    </li>
   </ul>
 </div>
